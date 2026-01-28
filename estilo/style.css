@@ -19,6 +19,7 @@ header{
     color: white;
     text-shadow: 3px 3px 5px black;
     grid-column: 1/4;
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.461);
 }
 main{
     grid-column: 2/3;
@@ -34,14 +35,29 @@ section{
     flex-direction: column;
     gap: 20px;
 }
+select{
+    width: 50%;
+}
+button{
+    padding: 8px;
+    border-radius: 8px;
+    border: 2px solid rgb(175, 43, 43);
+    background-color:rgb(192, 70, 70) ;
+    color: white;
+    text-shadow: 1px 1px  black;
+}
+button:hover{
+    background-color:rgba(234, 69, 69, 0.529) ;
+}
 div.borda{
    padding: 10px;
    background-color: rgba(226, 82, 82, 0.529);
    margin-bottom: 10px;
    border-radius: 8px;
-   border: 1px solid rgb(175, 43, 43);
+   border: 2px solid rgb(175, 43, 43);
    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.315);
+   transition-duration: 0.5s;
 }
-div.borda:hover{
-  
+div.borda:active{
+  border-left:10px solid rgb(175, 43, 43);
 }
