@@ -15,7 +15,7 @@
             <article>
                 <label for="inumero">Número de 1 a 100:</label>
                 <div>
-                    <input type="number" name="numero" id="inumero" >
+                    <input type="number" name="numero" id="inumero" placeholder="insira o número">
                     <button onclick="adicionar()">Adicionar</button >
                 </div>
             </article>
@@ -26,13 +26,13 @@
                 </select> <br>
 
                 <button id="finalizar" onclick="finalizar()">finalizar</button>
+                <button onclick="limpar()">Limpar</button>
             </article>
         </section>
 
 
         <section>
             <div id="res">
-<p>bla</p>
             </div>
         </section>
     </main>
@@ -69,6 +69,15 @@
                 input.focus()
             } else{
                 alert('tem algum número repetido ou não esta entre 1 a 100')
+            }
+        }
+        function limpar(){
+            if(valores.length > 0){
+                valores.length = 0
+                lista.innerHTML = ''
+                div.innerHTML = ''
+            } else{
+                alert('a lista de valores já está limpa!')
             }
         }
         function finalizar(){

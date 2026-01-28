@@ -5,7 +5,7 @@
 }
 body{
     display: grid;
-    grid-template-columns: auto 90% auto;
+    grid-template-columns: 1fr minmax(0, 600px) 1fr;
     background-color: rgb(184, 76, 76);
     font-family: Arial, Helvetica, sans-serif;
     gap: 40px;
@@ -35,12 +35,20 @@ section{
     flex-direction: column;
     gap: 20px;
 }
+input{
+    font-size: 1em;
+    padding: 8px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
 label{
     font-size: 1.2em;
 }
 select{
     width: 100%;
     margin-bottom: 10px;
+    border: 2px solid black;
+    border-radius: 8px;
 }
 select option{
     font-size: 1.3em;
@@ -54,8 +62,11 @@ button{
     text-shadow: 1px 1px  black;
     font-size: 1em;
 }
+button#finalizar{
+    margin-right: 10px;
+}
 button:active{
-    background-color:rgba(234, 69, 69, 0.529) ;
+    background-color: rgb(223, 129, 122);
 }
 div.borda{
    padding: 10px;
@@ -68,4 +79,9 @@ div.borda{
 }
 div.borda:active{
   border-left:10px solid rgb(175, 43, 43);
+}
+@media screen and (min-width:992px){
+    button:hover{
+         background-color:rgba(205, 121, 121, 0.529);
+    }
 }
