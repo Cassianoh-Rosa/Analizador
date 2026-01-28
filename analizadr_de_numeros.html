@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador</title>
+    <link rel="stylesheet" href="estilo/style.css">
+</head>
+<body>
+<header>
+        <h1>Analizador de números</h1>
+    </header>
+    <main>
+        <section>
+            <article>
+                <label for="inumero">Número de 1 a 100:</label>
+                <div>
+                    <input type="number" name="numero" id="inumero" >
+                    <button onclick="adicionar()">Adicionar</button >
+                </div>
+            </article>
+
+            <article>
+                <select name="lista" id="ilista" size="5">
+                    
+                </select>
+
+                <button id="finalizar" onclick="finalizar()">finalizar</button>
+            </article>
+        </section>
+
+
+        <section>
+            <div id="res">
+<p>bla</p>
+            </div>
+        </section>
+    </main>
+    <script>
+        /*let futuro = window.confirm('eai cassiano, como anda a vida? parou de ser um bosta? finalmente conseguiu parar de ser desse jeito q vc é? sozinho e sem saber se expressar? pelo menos conseguiu a porra do emprego na tecnicom que a gente tanto sonhou? Espero que vc tenha conseguido mudar de vida, feito amizades que nunca tivemos, e o melhor, estar em paz consigo mesmo, algo que nós nunca conseguimos por conta do nosso autismo e ansiedade extrema. Sinceramente, se vc esta lendo isso e nossa vida não mudou nada, acho melhor a gente acabar com tudo isso.. se é que vc me entende, pq devemos sofrer mais por algo que nunca vai acontecer? mas, se por algum motivo vc conseguiu um emprego nessa area e está feliz (que é bem improvavel), parabens mn. seleciona o "ok" se sua vida está boa, se não, seleciona a outra opção ae que eu esqueci o nome')*/
+       let input = document.getElementById('inumero')
+        let valores = []
+        let lista = document.getElementById('ilista')
+        let div = document.getElementById('res')
+
+       function isNumero(x){
+        if(Number(x) > 0 && Number(x)<=100){
+            return true
+        } else 
+        {
+            return false
+        }
+       }
+       function InLista(x){
+        if(valores.indexOf(Number(x)) == -1){
+            return true
+        } else{
+            return false
+        }
+       }
+        function adicionar(){
+            if(isNumero(Number(input.value)) && InLista(Number(input.value))){
+               valores.push(Number(input.value))
+               var opcao = document.createElement('option')
+               opcao.innerHTML = `valor ${input.value} adicionado`
+                lista.appendChild(opcao)
+                input.value = ''
+                div.innerText = ''
+                input.focus()
+            } else{
+                alert('tem algum número repetido ou não esta entre 1 a 100')
+            }
+        }
+        function finalizar(){
+            if(valores.length == 0){
+                alert('adicione valores antes de finalizar')
+            }else{
+                maior = valores[0]
+                menor = valores[0]
+                soma = 0
+                for(pos in valores){
+                    if(valores[pos] > maior){
+                        maior = valores[pos]
+                    }
+                    if(valores[pos]< menor){
+                        menor = valores[pos]
+                    }
+                }
+                for(pos in valores){
+                    soma+= valores[pos]
+                }
+                div.innerHTML = ''
+                div.innerHTML += `<div class="borda">
+                    <p>Ao todo, temos ${valores.length} valores</p>
+                </div>`
+                div.innerHTML += `<div class="borda">
+                    <p>O menor número informado foi ${menor} </p>
+                </div>`
+                div.innerHTML += `<div class="borda">
+                    <p>O maior número informado foi ${maior} </p>
+                </div>`
+                div.innerHTML += `<div class="borda">
+                    <p>A soma dos valores é ${soma} </p>
+                </div>`
+                div.innerHTML += `<div class="borda">
+                    <p>A média dos valores é ${(soma/valores.length).toFixed(2)}</p>
+                </div>`
+            }
+        }
+
+    </script>
+</body>
+</html>
