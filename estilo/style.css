@@ -35,8 +35,15 @@ section{
     flex-direction: column;
     gap: 20px;
 }
+label{
+    font-size: 1.2em;
+}
 select{
-    width: 50%;
+    width: 100%;
+    margin-bottom: 10px;
+}
+select option{
+    font-size: 1.3em;
 }
 button{
     padding: 8px;
@@ -45,8 +52,9 @@ button{
     background-color:rgb(192, 70, 70) ;
     color: white;
     text-shadow: 1px 1px  black;
+    font-size: 1em;
 }
-button:hover{
+button:active{
     background-color:rgba(234, 69, 69, 0.529) ;
 }
 div.borda{
